@@ -10,9 +10,9 @@ using Newtonsoft.Json;
 
 namespace PriceTracker.Scraper
 {
-    public static class ScrapePricesForSubscriptions
+    public static class CheckPrices
     {
-        [FunctionName("ScrapePricesForSubscriptions")]
+        [FunctionName("CheckPrices")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log
@@ -28,7 +28,7 @@ namespace PriceTracker.Scraper
 
             string responseMessage = string.IsNullOrEmpty(name)
                 ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+                : $"Hello, {name}! This HTTP triggered function executed successfully.";
 
             return new OkObjectResult(responseMessage);
         }
